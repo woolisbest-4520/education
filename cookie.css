@@ -1,0 +1,118 @@
+.cookie-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 54px;
+  height: 54px;
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
+  transition: 0.3s ease;
+}
+.cookie-toggle.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 420px;
+  padding: 18px 20px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 15px;
+
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.35s ease;
+  z-index: 9998;
+}
+
+.cookie-banner.closed {
+  opacity: 0;
+  transform: translateY(15px) scale(0.85);
+  pointer-events: none;
+}
+
+.cookie-banner.hide {
+  animation: fadeOut 0.5s forwards;
+}
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateY(20px); }
+}
+
+.hidden { display: none; }
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.ok { background: rgba(255,255,255,0.7); }
+.no { background: rgba(255,255,255,0.4); }
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+.lang-switch { display: flex; gap: 6px; }
+.lang {
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.5;
+  transition: 0.2s;
+}
+.lang.active {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* iPhone */
+@media (max-width: 480px) {
+  .cookie-banner {
+    width: 92%;
+    right: 4%;
+    padding: 16px 16px;
+  }
+  button {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+}
+
+/* iPad 横向き */
+@media (min-width: 1024px) and (orientation: landscape) {
+  .cookie-banner {
+    width: 460px;
+    padding: 22px 26px;
+    font-size: 16px;
+    gap: 18px;
+  }
+}
