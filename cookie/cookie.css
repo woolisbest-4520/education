@@ -1,6 +1,93 @@
-/* ---------------------------
+/* ------------------------------------
+   Cookie Banner - Glass Black Theme
+   + Neon Green Buttons
+   + Mobile / iPad Landscape対応
+------------------------------------ */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 310px;
+  padding: 18px;
+  border-radius: 18px;
+
+  /* 黒ガラス風 */
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.4;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+
+  transition: transform 0.45s ease, opacity 0.45s ease;
+  transform: translateY(130%);
+  opacity: 0;
+
+  z-index: 99999;
+}
+
+.cookie-banner.open {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.cookie-banner.closed {
+  pointer-events: none;
+}
+
+/* ------------------------------------
+   Toggle Button
+------------------------------------ */
+
+.cookie-toggle {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+
+  padding: 10px 12px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+
+  z-index: 99999;
+  transition: 0.25s;
+}
+
+.cookie-toggle:hover {
+  scale: 1.1;
+}
+
+/* ------------------------------------
+   Text
+------------------------------------ */
+
+.cookie-text {
+  margin-bottom: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ------------------------------------
+   Buttons Area
+------------------------------------ */
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ------------------------------------
    Neon Green Buttons
----------------------------- */
+------------------------------------ */
 
 .ok, .no {
   flex: 1;
@@ -10,12 +97,11 @@
   font-size: 15px;
   cursor: pointer;
 
-  /* ベースのネオングリーン */
   background: #0aff4c;
   color: #000;
   font-weight: bold;
 
-  /* ネオン光 */
+  /* ネオングロー */
   box-shadow:
     0 0 5px #0aff4c,
     0 0 12px #0aff4c,
@@ -33,4 +119,51 @@
     0 0 30px #20ff66,
     0 0 45px rgba(32, 255, 102, 0.9);
   transform: translateY(-2px);
+}
+
+/* ------------------------------------
+   Language Switcher
+------------------------------------ */
+
+.lang-switch {
+  display: flex;
+  gap: 8px;
+  margin-left: 4px;
+}
+
+.lang {
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.5;
+  transition: 0.2s;
+}
+
+.lang.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ------------------------------------
+   Responsive (iPhone / iPad Landscape)
+------------------------------------ */
+
+@media (max-width: 480px) {
+  .cookie-banner {
+    width: 88%;
+    bottom: 15px;
+    right: 6%;
+  }
+
+  .cookie-toggle {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .cookie-banner {
+    width: 330px;
+    bottom: 15px;
+    right: 15px;
+  }
 }
