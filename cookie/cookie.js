@@ -22,14 +22,14 @@ toggleBtn.addEventListener("click", () => {
 document.getElementById("accept-btn").addEventListener("click", () => {
   banner.classList.add("closed");
   setTimeout(() => {
-    window.location.href = "/accepted";
+    window.location.href = "/承認";
   }, 400);
 });
 
 document.getElementById("deny-btn").addEventListener("click", () => {
   banner.classList.add("closed");
   setTimeout(() => {
-    window.location.href = "/denied";
+    window.location.href = "/拒否";
   }, 400);
 });
 
