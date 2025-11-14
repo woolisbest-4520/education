@@ -1,40 +1,33 @@
-<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cookie Banner Test</title>
+<link rel="stylesheet" href="/cookie/cookie.css">
 
-  <!-- CSS は /cookie/cookie.css から読み込み -->
-  <link rel="stylesheet" href="/cookie/cookie.css">
-</head>
-<body>
+<div id="cookie-banner" class="cookie-banner closed">
+  <div class="cookie-header">
+    <span class="cookie-title" data-lang-ja="Cookieの使用について" data-lang-en="About Cookies">
+      Cookieの使用について
+    </span>
+    <button id="cookie-toggle">▲</button>
+  </div>
 
-  <!-- 小さな丸アイコン -->
-  <div class="cookie-toggle" id="cookie-toggle" aria-label="Open cookie banner">🍪</div>
-
-  <!-- Cookie バナー（closed が初期） -->
-  <div class="cookie-banner closed" id="cookie-banner" role="dialog" aria-hidden="true">
-    <div class="cookie-text" data-lang="ja">このサイトでは Cookie を使用しています。</div>
-    <div class="cookie-text hidden" data-lang="en">This website uses cookies.</div>
+  <div class="cookie-body">
+    <p id="cookie-text"
+       data-lang-ja="当サイトではユーザー体験向上のためCookieを使用しています。"
+       data-lang-en="This site uses cookies to improve user experience.">
+       当サイトではユーザー体験向上のためCookieを使用しています。
+    </p>
 
     <div class="actions">
       <button id="accept-btn" class="ok"
-              data-text-ja="承認"
-              data-text-en="Accept">承認</button>
+        data-lang-ja="承認" data-lang-en="Approve">承認</button>
 
       <button id="deny-btn" class="no"
-              data-text-ja="拒否"
-              data-text-en="Deny">拒否</button>
+        data-lang-ja="拒否" data-lang-en="Deny">拒否</button>
+    </div>
 
-      <div class="lang-switch" aria-hidden="false">
-        <span class="lang active" data-lang="ja">🇯🇵</span>
-        <span class="lang" data-lang="en">🇺🇸</span>
-      </div>
+    <div class="lang-switch">
+      <span class="lang active" data-lang="ja">🇯🇵</span>
+      <span class="lang" data-lang="en">🇺🇸</span>
     </div>
   </div>
+</div>
 
-  <!-- JS は /cookie/cookie.js から読み込み -->
-  <script src="/cookie/cookie.js"></script>
-</body>
-</html>
+<script src="/cookie/cookie.js"></script>
