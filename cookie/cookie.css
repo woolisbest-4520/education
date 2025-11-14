@@ -1,112 +1,36 @@
 /* ---------------------------
-   Cookie Banner (Glass × Black)
----------------------------- */
-
-.cookie-banner {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 300px;
-  padding: 18px;
-  border-radius: 18px;
-
-  /* 黒ベース × ガラス風 */
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(12px);
-
-  color: #fff;
-  font-size: 15px;
-  line-height: 1.4;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
-
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  transform: translateY(120%);
-  opacity: 0;
-  z-index: 99999;
-}
-
-.cookie-banner.open {
-  transform: translateY(0%);
-  opacity: 1;
-}
-
-.cookie-banner.closed {
-  pointer-events: none;
-}
-
-/* Toggle icon (cookie) */
-.cookie-toggle {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
-  padding: 10px 12px;
-  border-radius: 50%;
-  font-size: 22px;
-  cursor: pointer;
-  z-index: 99999;
-  transition: 0.25s;
-}
-
-.cookie-toggle:hover {
-  scale: 1.1;
-}
-
-/* Language text */
-.cookie-text {
-  margin-bottom: 12px;
-}
-
-.hidden {
-  display: none;
-}
-
-/* Buttons */
-.actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 6px;
-}
-
-/* ---------------------------
-   Green Buttons（←希望デザイン）
+   Neon Green Buttons
 ---------------------------- */
 
 .ok, .no {
   flex: 1;
-  padding: 8px 0;
+  padding: 10px 0;
   border-radius: 10px;
   border: none;
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
 
-  /* 緑ボタン */
-  background: #12d859;
+  /* ベースのネオングリーン */
+  background: #0aff4c;
   color: #000;
   font-weight: bold;
 
-  transition: 0.25s;
+  /* ネオン光 */
+  box-shadow:
+    0 0 5px #0aff4c,
+    0 0 12px #0aff4c,
+    0 0 20px #0aff4c,
+    0 0 35px rgba(10, 255, 76, 0.8);
+
+  transition: 0.25s ease;
 }
 
 .ok:hover, .no:hover {
-  background: #0ea84a;
-}
-
-/* Language switch buttons */
-.lang-switch {
-  display: flex;
-  gap: 8px;
-}
-
-.lang {
-  cursor: pointer;
-  font-size: 18px;
-  opacity: 0.5;
-  transition: 0.2s;
-}
-
-.lang.active {
-  opacity: 1;
+  background: #20ff66;
+  box-shadow:
+    0 0 10px #20ff66,
+    0 0 20px #20ff66,
+    0 0 30px #20ff66,
+    0 0 45px rgba(32, 255, 102, 0.9);
+  transform: translateY(-2px);
 }
