@@ -1,42 +1,52 @@
-const banner = document.querySelector('.cookie-banner');
-const toggleBtn = document.querySelector('.cookie-toggle');
+document.addEventListener("DOMContentLoaded", () => {
+  const banner = document.querySelector(".cookie-banner");
+  const toggle = document.querySelector(".cookie-toggle");
+  const langButtons = document.querySelectorAll(".lang");
+  const texts = document.querySelectorAll(".cookie-text");
+  const acceptBtn = document.getElementById("accept-btn");
+  const denyBtn = document.getElementById("deny-btn");
 
-// 開閉
-toggleBtn.addEventListener('click', () => {
-  banner.classList.toggle('closed');
-  toggleBtn.classList.toggle('hidden');
-});
+  // ▼ バナーの開閉
+  toggle.addEventListener("click", () => {
+    banner.classList.toggle("open");
+    banner.classList.toggle("closed");
+  });
 
-// バナーの外側クリックで閉じないように
-banner.addEventListener('click', (e) => {
-  if (e.target === banner) {
-    banner.classList.toggle('closed');
-    toggleBtn.classList.toggle('hidden');
-  }
-});
+  // ▼ 言語切り替え
+  langButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const lang = btn.dataset.lang;
 
-// 言語切り替え
-document.querySelectorAll('.lang').forEach(el => {
-  el.addEventListener('click', () => {
-    const lang = el.dataset.lang;
+      // アイコンの active 切り替え
+      langButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
 
-    document.querySelectorAll('.cookie-text').forEach(t => {
-      t.classList.toggle('hidden', t.dataset.lang !== lang);
-    });
+      // テキスト切り替え
+      texts.forEach(t => {
+        t.classList.toggle("hidden", t.dataset.lang !== lang);
+      });
 
-    document.querySelectorAll('.lang').forEach(l => {
-      l.classList.toggle('active', l.dataset.lang === lang);
+      // ボタンの文字切り替え
+      acceptBtn.textContent = acceptBtn.dataset[`text-${lang}`];
+      denyBtn.textContent = denyBtn.dataset[`text-${lang}`];
     });
   });
-});
 
-// 遅延してページ遷移
-document.getElementById("accept-btn").addEventListener("click", () => {
-  banner.classList.add("hide");
-  setTimeout(() => window.location.href = "https://example.com/accept", 800);
-});
+  // ▼ 承認時（遷移前に少し待つ）
+  acceptBtn.addEventListener("click", () => {
+    banner.classList.remove("open");
+    banner.classList.add("closed");
+    setTimeout(() => {
+      window.location.href = "/nextpage"; // ← 好きな遷移先
+    }, 500);
+  });
 
-document.getElementById("deny-btn").addEventListener("click", () => {
-  banner.classList.add("hide");
-  setTimeout(() => window.location.href = "https://example.com/deny", 800);
+  // ▼ 拒否時（別ページへ）
+  denyBtn.addEventListener("click", () => {
+    banner.classList.remove("open");
+    banner.classList.add("closed");
+    setTimeout(() => {
+      window.location.href = "/deny"; // ← 拒否時URL
+    }, 500);
+  });
 });
