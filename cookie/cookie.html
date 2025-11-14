@@ -42,13 +42,13 @@
     </div>
   </main>
   <!--⬇️cookie設定⬇️-->
-  <link rel="stylesheet" href="/cookie/cookie.css">
-
-<!-- 小さな丸アイコン：閉じた状態で表示 -->
+<!-- 小さな丸アイコン -->
 <div class="cookie-toggle">🍪</div>
 
-<!-- クリックで開くバナー -->
+<!-- Cookie バナー -->
 <div class="cookie-banner closed">
+
+  <!-- テキスト（日英） -->
   <div class="cookie-text" data-lang="ja">
     このサイトでは Cookie を使用しています。
   </div>
@@ -57,8 +57,17 @@
   </div>
 
   <div class="actions">
-    <button id="accept-btn" class="ok">承認</button>
-    <button id="deny-btn" class="no">拒否</button>
+
+    <!-- ボタン（日英対応） -->
+    <button id="accept-btn" class="ok"
+            data-text-ja="承認"
+            data-text-en="Accept">承認</button>
+
+    <button id="deny-btn" class="no"
+            data-text-ja="拒否"
+            data-text-en="Deny">拒否</button>
+
+    <!-- 言語切り替え -->
     <div class="lang-switch">
       <span class="lang active" data-lang="ja">🇯🇵</span>
       <span class="lang" data-lang="en">🇺🇸</span>
