@@ -1,121 +1,121 @@
-/* ------------------------------------
-   Cookie Banner - Glass Black Theme
-   + Neon Green Buttons
------------------------------------- */
-
+/* 位置：右下固定 */
 .cookie-banner {
   position: fixed;
-  bottom: 20px;
   right: 20px;
-  width: 320px;
-  padding: 16px;
-  border-radius: 14px;
+  bottom: 20px;
+  width: 280px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 12px;
+  color: white;
+  font-family: sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  z-index: 999999;
+}
 
-  background: rgba(0, 0, 0, 0.60);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  color: #fff;
-  font-size: 15px;
-  line-height: 1.4;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-
-  transition: transform 0.45s cubic-bezier(.2,.8,.2,1), opacity 0.45s ease;
-  transform: translateY(120%);
+/* 初期状態：閉じている */
+.cookie-banner.closed {
+  bottom: -150px;
   opacity: 0;
-  z-index: 99999;
+  pointer-events: none;
+}
+
+/* 開いた状態 */
+.cookie-banner.open {
+  bottom: 20px;
+  opacity: 1;
   pointer-events: auto;
 }
 
-/* open -> visible */
-.cookie-banner.open {
-  transform: translateY(0%);
+/* ヘッダー */
+.cookie-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cookie-toggle {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+/* 本文 */
+.cookie-body {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ボタン */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.ok, .no {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  margin-right: 5px;
+  transition: 0.2s;
+}
+
+.ok:last-child, .no:last-child {
+  margin-right: 0;
+}
+
+/* ネオン緑の承認ボタン */
+.ok {
+  background: #00ff88;
+  color: black;
+  box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+}
+
+.ok:hover {
+  box-shadow: 0 0 20px #00ff88, 0 0 35px #00ff88;
+}
+
+/* 拒否（暗いグレー） */
+.no {
+  background: #444;
+  color: white;
+}
+
+.no:hover {
+  background: #666;
+}
+
+/* 言語切り替え */
+.lang-switch {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.lang {
+  cursor: pointer;
+  margin-left: 6px;
+  opacity: 0.6;
+  font-size: 18px;
+}
+
+.lang.active {
   opacity: 1;
 }
 
-/* closed -> hidden & non-interactive */
-.cookie-banner.closed {
-  transform: translateY(120%);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Toggle icon (cookie) */
-.cookie-toggle {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 54px;
-  height: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  border-radius: 50%;
-  font-size: 26px;
-  cursor: pointer;
-  z-index: 100000;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-/* When banner is open, keep toggle visible but slightly hidden if desired */
-.cookie-toggle.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Text */
-.cookie-text { margin-bottom: 12px; }
-.hidden { display: none !important; }
-
-/* Buttons area */
-.actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-/* Neon Green Buttons */
-.ok, .no {
-  flex: 1;
-  padding: 10px 8px;
-  border-radius: 10px;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  background: #0aff4c;
-  color: #000;
-  font-weight: 700;
-  box-shadow:
-    0 0 4px #0aff4c,
-    0 0 10px #0aff4c,
-    0 0 18px rgba(10,255,76,0.7);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-.ok:hover, .no:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 0 8px #20ff66,
-    0 0 18px #20ff66,
-    0 0 28px rgba(32,255,102,0.85);
-}
-
-/* Language switch */
-.lang-switch { display:flex; gap:8px; margin-left:6px; }
-.lang { cursor:pointer; font-size:18px; opacity:0.6; transition:0.15s; }
-.lang.active { opacity:1; transform:scale(1.05); }
-
-/* Responsive */
+/* iPhone / iPad・横向き対応 */
 @media (max-width: 480px) {
-  .cookie-banner { width: 92%; right: 4%; bottom: 14px; padding: 14px; }
-  .cookie-toggle { right: 18px; bottom: 18px; width: 48px; height: 48px; font-size:22px; }
-  .ok, .no { padding: 9px 6px; font-size:13px; }
-}
-
-@media (min-width: 1024px) and (orientation: landscape) {
-  .cookie-banner { width: 420px; right: 24px; bottom: 24px; padding: 18px; }
+  .cookie-banner {
+    width: 90%;
+    right: 5%;
+    bottom: 10px;
+  }
 }
