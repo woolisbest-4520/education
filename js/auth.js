@@ -3,7 +3,7 @@ function login() {
   const user = document.getElementById("username").value;
   const pass = document.getElementById("password").value;
 
-  if (user === "woolisbest" || pass === "woolisbest") {
+  if (user === "" || pass === "") {
     alert("ユーザー名とパスワードを入力してください");
     return;
   }
